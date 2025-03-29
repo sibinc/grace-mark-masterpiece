@@ -25,12 +25,12 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
   const [markType, setMarkType] = useState<'max' | 'obtained'>('max');
   
   const [passEnabled, setPassEnabled] = useState(true);
-  const [passMaxMark, setPassMaxMark] = useState(100);
-  const [passShouldNotExceed, setPassShouldNotExceed] = useState(50);
+  const [passMaxMark, setPassMaxMark] = useState(15);
+  const [passShouldNotExceed, setPassShouldNotExceed] = useState(80);
   
   const [supplementaryEnabled, setSupplementaryEnabled] = useState(true);
-  const [supplementaryMaxMark, setSupplementaryMaxMark] = useState(75);
-  const [supplementaryShouldNotExceed, setSupplementaryShouldNotExceed] = useState(40);
+  const [supplementaryMaxMark, setSupplementaryMaxMark] = useState(10);
+  const [supplementaryShouldNotExceed, setSupplementaryShouldNotExceed] = useState(45);
   
   const [subjectLimitEnabled, setSubjectLimitEnabled] = useState(false);
   const [subjectLimit, setSubjectLimit] = useState(0);
@@ -163,6 +163,11 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
           
           <div className="space-y-3">
             <h3 className="text-sm font-medium">Mark Type</h3>
+            <p className="text-xs text-gray-500 mb-2">
+              {markType === 'max' 
+                ? 'Uses maximum mark of the subject (e.g., 10% of max mark)' 
+                : 'Uses obtained mark of the student (e.g., 10% of student\'s mark)'}
+            </p>
             
             <RadioGroup 
               value={markType} 
@@ -171,11 +176,11 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="max" id="max" />
-                <Label htmlFor="max" className="text-sm">Maximum</Label>
+                <Label htmlFor="max" className="text-sm">Maximum Mark</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="obtained" id="obtained" />
-                <Label htmlFor="obtained" className="text-sm">Obtained</Label>
+                <Label htmlFor="obtained" className="text-sm">Obtained Mark</Label>
               </div>
             </RadioGroup>
           </div>
@@ -198,7 +203,7 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
               {passEnabled && (
                 <div className="space-y-3 pt-2">
                   <div>
-                    <Label htmlFor="passMaxMark" className="text-xs text-gray-500">Max Mark</Label>
+                    <Label htmlFor="passMaxMark" className="text-xs text-gray-500">Max Grace Mark (10-30)</Label>
                     <Input
                       id="passMaxMark"
                       type="number"
@@ -209,7 +214,7 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
                   </div>
                   
                   <div>
-                    <Label htmlFor="passShouldNotExceed" className="text-xs text-gray-500">Should Not Exceed</Label>
+                    <Label htmlFor="passShouldNotExceed" className="text-xs text-gray-500">Should Not Exceed (e.g., 80)</Label>
                     <Input
                       id="passShouldNotExceed"
                       type="number"
@@ -235,7 +240,7 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
               {supplementaryEnabled && (
                 <div className="space-y-3 pt-2">
                   <div>
-                    <Label htmlFor="supplementaryMaxMark" className="text-xs text-gray-500">Max Mark</Label>
+                    <Label htmlFor="supplementaryMaxMark" className="text-xs text-gray-500">Max Grace Mark (5-15)</Label>
                     <Input
                       id="supplementaryMaxMark"
                       type="number"
@@ -246,7 +251,7 @@ const CreateRuleForm: React.FC<CreateRuleFormProps> = ({ onCreateRule, onClose }
                   </div>
                   
                   <div>
-                    <Label htmlFor="supplementaryShouldNotExceed" className="text-xs text-gray-500">Should Not Exceed</Label>
+                    <Label htmlFor="supplementaryShouldNotExceed" className="text-xs text-gray-500">Should Not Exceed (e.g., 45)</Label>
                     <Input
                       id="supplementaryShouldNotExceed"
                       type="number"

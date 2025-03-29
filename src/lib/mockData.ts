@@ -15,13 +15,13 @@ export const mockRules: Rule[] = [
     marks_awarded: {
       pass_paper: {
         enabled: true,
-        max_mark: 100,
-        should_not_exceed: 50
+        max_mark: 15,
+        should_not_exceed: 80
       },
       supplementary_paper: {
         enabled: true,
-        max_mark: 75,
-        should_not_exceed: 40
+        max_mark: 10,
+        should_not_exceed: 45
       }
     },
     subject_limit: {
@@ -42,8 +42,8 @@ export const mockRules: Rule[] = [
     marks_awarded: {
       pass_paper: {
         enabled: true,
-        max_mark: 100,
-        should_not_exceed: 20
+        max_mark: 20,
+        should_not_exceed: 75
       },
       supplementary_paper: {
         enabled: false,
@@ -69,13 +69,13 @@ export const mockRules: Rule[] = [
     marks_awarded: {
       pass_paper: {
         enabled: true,
-        max_mark: 100,
-        should_not_exceed: 25
+        max_mark: 25,
+        should_not_exceed: 85
       },
       supplementary_paper: {
         enabled: true,
-        max_mark: 75,
-        should_not_exceed: 20
+        max_mark: 15,
+        should_not_exceed: 40
       }
     },
     subject_limit: {
@@ -96,13 +96,13 @@ export const mockRules: Rule[] = [
     marks_awarded: {
       pass_paper: {
         enabled: true,
-        max_mark: 100,
-        should_not_exceed: 15
+        max_mark: 10,
+        should_not_exceed: 70
       },
       supplementary_paper: {
         enabled: true,
-        max_mark: 75,
-        should_not_exceed: 10
+        max_mark: 8,
+        should_not_exceed: 45
       }
     },
     subject_limit: {
